@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stocks</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'sty_stock.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Stocks</h1>
+    <form id="stocks-form" method="post">
+        {% csrf_token %}
+        <label for="amount_to_invest">Amount to be Invested:</label>
+        <input type="number" id="amount_to_invest" name="amount_to_invest" required><br><br>
+        
+        <label for="risk_bearing_capability">Risk Bearing Capability:</label>
+        <select id="risk_bearing_capability" name="risk_bearing_capability" required>
+            <option value="High">High</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Low">Low</option>
+        </select><br><br>
+        
+        <input type="submit" value="Make my Portfolio">
+    </form>
+    {% if portfolio %}
+        <h2>Portfolio</h2>
+        <p>Amount Invested: {{ initial_value }}</p>
+        <p>Current Value: <span id="current-value">{{ current_value }}</span></p>
+        <ul>
+            {% for stock, quantity in portfolio.items %}
+                <li>{{ stock }}: {{ quantity }}</li>
+            {% endfor %}
+        </ul>
+        <button id="refresh-button">Ref Current Value</button>
+    {% endif %}
+
+    <br>
+    <br>
+
+    {% if news %}
+    <h2>News</h2>
+    <ul>
+        {% for tick, data in news.items %}
+            <li><strong>{{ tick }}</strong>: {{ data }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+{% endif %}
+    <script>
+        const button = document.getElementById('refresh-button')
+        const valueSpan = document.getElementById('current-value')
+        button.addEventListener('click', async () => {
+            const res = await fetch("/nv")
+            const data = await res.json()
+            valueSpan.innerText  = data.current_value
+
+        })
+    </script>
+</body>
+</html>

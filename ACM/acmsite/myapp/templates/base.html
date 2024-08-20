@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ACM Kaaryvarta's GPT Fund</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+
+
+<body>
+    <div class="top-rectangle"></div>
+    <div class="header">
+        <img src="{% static 'acm.png' %}" alt="ACM Logo" class="logo">
+        <h1>ACM Kaaryvarta's GPT Fund</h1>
+    </div>
+
+
+    <div class="line"></div>
+
+    <div class="block-container"> <!-- Container for the blocks -->
+        <div class="block" id="stocks">
+            <a href="{% url 'stocks' %}">Are you ready to take some risk? <br> Click here to Invest with us in Stocks!</a>
+        </div>
+        <div class="block" id="mutual-funds">
+            <a href="{% url 'mf' %}">Tired of Crisil and looking for a Ranking for Mutual Funds? <br> Click here to get just that!</a>
+        </div>
+    </div>
+
+    
+    <div class="contributors-container">
+        <div class="contributors">
+            <h2>Project Mentees</h2>
+            <ul>
+                <li>Siraj Fahmida Senthil</li>
+                <li>Tanay Shekokar</li>
+                <li>Bhavish Kumar</li>
+            </ul>
+        </div>
+    
+        <div class="contributors">
+            <h2>Project Mentor</h2>
+            <ul>
+                <li>Satyam Agrawal</li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

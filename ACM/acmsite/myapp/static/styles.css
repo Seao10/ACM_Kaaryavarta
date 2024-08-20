@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #0e0a2a;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.top-rectangle {
+    height: 10px;
+    background-color: #ffffff;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #1b425c; /* Background color behind the heading and logo */
+    padding: 10px; /* Padding to create space around the logo and heading */
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+.line {
+    height: 10px;
+    width: 100%;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.block-container {
+    display: flex;
+    justify-content: center;
+}
+
+.block {
+    width: 500px; /* Increase the width */
+    height: 450px;
+    margin: 50px;
+    text-align: center;
+    background-color: #87c2ea;
+    border-radius: 10px;
+    padding-top: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.block a {
+    color: white;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: -1px -1px 0 rgb(6, 5, 93), 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Add text shadow */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Make the text take up the full height of the block */
+    width: 100%; /* Make the text take up the full width of the block */
+}
+
+
+.block:hover {
+    background-color: #1b425c;
+}
+
+.contributors-container {
+    display: flex;
+    justify-content: center;
+}
+
+.contributors {
+    margin: 0 10px; 
+    text-align: center;
+}
+
+.contributors h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contributors ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contributors ul li {
+    margin-bottom: 10px;
+}

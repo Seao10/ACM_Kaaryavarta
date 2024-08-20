@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mutual Funds</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'sty_mf.css' %}">
+</head>
+<body>
+    <h1>Mutual Funds</h1>
+    <form method="post">
+        {% csrf_token %}        
+        <label for="mf_rbc">Risk Bearing Capability:</label>
+        <select id="mf_rbc" name="mf_rbc" required>
+            <option value="High">High</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Low">Low</option>
+        </select><br><br>
+        
+        <input type="submit" value="Calculate">
+    </form>
+    {% if rankings %}
+        <h2>Top Funds Recommendations</h2>
+            {% for stock, quantity in rankings.items %}
+                <li>{{ stock }}: {{ quantity }}</li>
+            {% endfor %}
+        </ul>
+        <button onclick="location.reload()">Refresh</button>
+    {% endif %}
+</body>
+</html>
